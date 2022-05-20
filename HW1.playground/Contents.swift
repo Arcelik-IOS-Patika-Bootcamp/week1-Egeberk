@@ -95,3 +95,49 @@ print(newEmployee.calculateSalary()) // 1000
 newEmployee.setExpYears(expYears: 3)
 print(newEmployee.calculateSalary()) // 3000
 // End of class
+
+/*
+ # Optional Example
+ Includes: if let, guard let
+ */
+var someOptionalString:String?
+var flag:Bool = true;
+
+/* Loop will continue till we assign our
+ optional String a value
+ */
+while flag{
+    if let checkedInt = someOptionalString{
+        print("Value is assigned and we can continue with our lives")
+        flag = false
+    }
+    else{
+        print("Hold on I'm assigning it a value")
+        someOptionalString = "lol"
+    }
+}
+
+// Guard let
+let functionDefaultReturnValue = -1
+
+func someCalculationFunction(_ importantData:Int?) -> Int{
+    guard let data = importantData else
+    {
+        print("We can't continue without the data !")
+        return functionDefaultReturnValue
+    }
+    
+    /* Main thing about guard let: let variable countinues
+    to be accessible throughout the function scope.
+     */
+    return data * 1000
+}
+
+let planets : [String] = ["mars", "jupiter", "saturn"]
+var index:Int? = planets.firstIndex(of: "earth")
+var result = someCalculationFunction(index)
+print(result) // -1
+index = planets.firstIndex(of: "jupiter")
+result = someCalculationFunction(index)
+print(result) // 1000
+// End of optionals
