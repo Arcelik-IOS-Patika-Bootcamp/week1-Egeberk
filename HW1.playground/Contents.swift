@@ -141,3 +141,39 @@ index = planets.firstIndex(of: "jupiter")
 result = someCalculationFunction(index)
 print(result) // 1000
 // End of optionals
+
+/*
+ # Enumeration Example
+ Includes: Switch
+ */
+enum Planet{
+    case Mercury(String,Int)
+    case Venus(String,Int)
+    case Earth(String,Int)
+    case Mars(String,Int)
+}
+
+/* Once the type is assigned,
+ we can assign new Planet type with just a dot
+ */
+var selectedPlanet = Planet.Earth("Harbors life", 1)
+selectedPlanet = .Mars("Red planet", 2)
+
+// We can access the data using let or var
+switch selectedPlanet {
+case .Earth(let info, let moonCount):
+    print("Earth:\(info) and has \(moonCount) moons")
+case .Mars(let info, let moonCount):
+    print("Mars:\(info) and has \(moonCount) moons")
+default:
+    print("Not a rocky planet")
+}
+
+// Values can be assigned to enums
+enum Day:Int{
+    case Monday = 1 // Rest will be automatically assigned
+    case Tuesday
+    case Wednesday
+}
+print("Tuesday is the \(Day.Tuesday.rawValue). day of the week.")
+// End of enumerations
