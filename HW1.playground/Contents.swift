@@ -55,3 +55,43 @@ struct Human{
     }
 }
 // End of struct
+
+/*
+ # Class Example
+ */
+class Person{
+    private var name:String
+    private var age:Int
+    
+    /* With the use of "!" operator,
+     we don't have to include it in init
+     */
+    private var experienceYears:Int!
+    
+    init(_ name:String, _ age:Int){
+        self.name = name
+        self.age = age
+    }
+    
+    func giveInfo() {
+        print("Hi I'm \(self.name), and I'm \(self.age) years old.")
+    }
+    
+    // Without "_" operator
+    func setExpYears(expYears:Int){
+        self.experienceYears = expYears
+    }
+    
+    /* if salary did not initiate,
+     assign a def value with ?? operator
+     */
+    func calculateSalary()->Int{
+        return 1000 * (experienceYears ?? 1)
+    }
+}
+var newEmployee = Person("Ege",26)
+newEmployee.giveInfo()
+print(newEmployee.calculateSalary()) // 1000
+newEmployee.setExpYears(expYears: 3)
+print(newEmployee.calculateSalary()) // 3000
+// End of class
