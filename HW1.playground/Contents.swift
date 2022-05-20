@@ -35,4 +35,23 @@ for key in sampleDictionary.keys {
 }
 // End of collections
 
-
+/*
+ # Struct Example
+ */
+struct Human{
+    private var name:String
+    private var age:Int
+    
+    // Constructor
+    init(_ name:String,_ age:Int){
+        self.name = name
+        self.age = age
+    }
+    
+    // "Mutating" is needed for changes in struct variables
+    mutating func setName(_ name:String)
+    {
+        self.name = name
+    }
+}
+// End of struct
